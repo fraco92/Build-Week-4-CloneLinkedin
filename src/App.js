@@ -1,5 +1,11 @@
+import { Navbar } from "./components/Navbar/Navbar";
+
 function App() {
-  return <div className="App">{process.env.REACT_APP_API_URL}</div>;
+  return (
+    <div data-theme="light">
+      <Navbar />
+    </div>
+  );
 }
 
 export default App;
