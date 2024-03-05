@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  allPeople,
+  getPeople,
+  isAllPeopleError,
+  isAllPeopleLoading,
+} from "../../reducers/people/peopleSlice";
 
 export const Main = () => {
-  const [data, setData] = useState([]);
+  const people = useSelector(allPeople);
+  const isPeopleLoading = useSelector(isAllPeopleLoading);
+  const isPeopleError = useSelector(isAllPeopleError);
+  const dispatch = useDispatch();
+  console.log(people);
 
   useEffect(() => {
-    try {
-      const getData = async () => {
-        const response = await axios.get(process.env.REACT_APP_API_URL_GET, {
-          headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
-        });
-        const data = await response.data;
-        console.log(data);
-        setData(data);
-      };
-      getData();
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+    dispatch(getPeople());
+  }, [dispatch]);
 
   return (
     <div data-theme="light">
-      {data.map((profile) => {
+      {people.map((profile) => {
         return (
           <div className="border">
             <p>
