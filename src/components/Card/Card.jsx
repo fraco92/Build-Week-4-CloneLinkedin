@@ -1,7 +1,7 @@
 export const Card = ({ props }) => {
-  const {name, surname, title, image} = props
+  const { name, surname, title, image } = props;
   return (
-    <div class=" mt-16 bg-white shadow-xl rounded-lg text-gray-900">
+    <div class="hover:scale-[1.04] transition-transform duration-500 mt-16 bg-white shadow-xl rounded-lg text-gray-900 cursor-pointer card">
       <div class="rounded-t-lg h-32 overflow-hidden">
         <img
           class="object-cover object-top w-full"
@@ -12,7 +12,7 @@ export const Card = ({ props }) => {
       <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
         <img
           class="object-cover object-center h-32"
-            src={image}
+          src={image}
           alt="Woman looking front"
         />
       </div>
@@ -21,8 +21,8 @@ export const Card = ({ props }) => {
         <p class="text-gray-500">{title}</p>
       </div>
       <div class="p-4 border-t mx-8 mt-2">
-        <button class="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
-          Follow
+        <button class="block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
+          Collegati
         </button>
       </div>
     </div>

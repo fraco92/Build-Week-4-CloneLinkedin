@@ -3,8 +3,11 @@ import "./Navbar.css";
 export const Navbar = () => {
   return (
     <>
-      <div data-theme="light" className="navbar bg-base-100 flex-none gap-2">
-        <div className="flex-1 mx-[20%]">
+      <div
+        data-theme="light"
+        className="navbar bg-base-100 flex-none gap-2 w-full"
+      >
+        <div className="flex-1 justify-center">
           <img
             className="w-[35px] me-2 cursor-pointer"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"

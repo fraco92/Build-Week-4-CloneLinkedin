@@ -21,7 +21,7 @@ export const Main = () => {
 
   return (
     <div className="bg-[#F3F2ED] py-[25px]">
-      <div className="people-cont grid bg-[#fff] mx-[20%] rounded-2xl">
+      <div className="people-cont grid bg-[#fff] mx-[350px] rounded-2xl">
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-4 mx-8 mb-16">
           {isPeopleLoading && (
             <Circles
