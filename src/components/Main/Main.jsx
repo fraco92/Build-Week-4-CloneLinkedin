@@ -7,7 +7,6 @@ import {
   isAllPeopleLoading,
 } from "../../reducers/people/peopleSlice";
 import { Circles } from "react-loader-spinner";
-import { isPlainObject } from "@reduxjs/toolkit";
 
 export const Main = () => {
   const people = useSelector(allPeople);
