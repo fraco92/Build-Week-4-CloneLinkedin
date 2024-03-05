@@ -6,6 +6,8 @@ import {
   isAllPeopleError,
   isAllPeopleLoading,
 } from "../../reducers/people/peopleSlice";
+import { Circles } from "react-loader-spinner";
+import { isPlainObject } from "@reduxjs/toolkit";
 
 export const Main = () => {
   const people = useSelector(allPeople);
@@ -20,21 +22,39 @@ export const Main = () => {
 
   return (
     <div data-theme="light">
-      {people.map((profile) => {
-        return (
-          <div className="border">
-            <p>
-              <b>Id:</b> {profile._id}
-            </p>
-            <p>
-              <b>Nome:</b> {profile.name}
-            </p>
-            <p>
-              <b>Cognome:</b> {profile.surname}
-            </p>
-          </div>
-        );
-      })}
+      {isPeopleLoading && (
+        <Circles
+          height="80"
+          width="80"
+          color="#000"
+          ariaLabel="circles-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      )}
+      {isPeopleError && (
+        <div>
+          <p>Error, please try again later.</p>
+        </div>
+      )}
+      {!isPeopleError &&
+        !isPeopleLoading &&
+        people.map((profile) => {
+          return (
+            <div className="border">
+              <p>
+                <b>Id:</b> {profile._id}
+              </p>
+              <p>
+                <b>Nome:</b> {profile.name}
+              </p>
+              <p>
+                <b>Cognome:</b> {profile.surname}
+              </p>
+            </div>
+          );
+        })}
     </div>
   );
 };
