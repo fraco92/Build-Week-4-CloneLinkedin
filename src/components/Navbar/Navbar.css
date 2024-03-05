@@ -12,6 +12,7 @@
 .hover:hover > * {
   color: #191919;
   fill: #191919;
+  cursor: pointer;
 }
 
 .input {
