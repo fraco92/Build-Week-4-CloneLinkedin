@@ -19,7 +19,7 @@ export const Navbar = () => {
       }
     }, 500);
 
-    return () => clearTimeout(timeout)
+    return () => clearTimeout(timeout);
   };
 
   return (
@@ -28,19 +28,21 @@ export const Navbar = () => {
         data-theme="light"
         className="navbar bg-base-100 flex-none gap-2 w-full"
       >
-        <div className="flex-1 justify-center">
-          <img
-            className="w-[35px] me-2 cursor-pointer"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
-            alt=""
-          />
-          <div className="form-control">
-            <input
-              onChange={(e) => handleSearch(e.target.value)}
-              type="text"
-              placeholder="🔍 Cerca"
-              className="input input-bordered rounded w-[250px] h-[35px] border-none"
+        <div className="flex-1 justify-between mx-[350px]">
+          <div className="logo-with-searchbar flex">
+            <img
+              className="w-[35px] me-2 cursor-pointer"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
+              alt=""
             />
+            <div className="form-control">
+              <input
+                onChange={(e) => handleSearch(e.target.value)}
+                type="text"
+                placeholder="🔍 Cerca"
+                className="input input-bordered rounded w-[250px] h-[35px] border-none"
+              />
+            </div>
           </div>
           <div className="ms-[100px] icons text-center flex items-center gap-9">
             <div className="home hover">
