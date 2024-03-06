@@ -58,7 +58,7 @@ export const Navbar = () => {
               >
                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
               </svg>
-              <p className="text-sm">Home</p>
+              <a href="/" className="text-sm">Home</a>
             </div>
             <div className="friends hover">
               <svg
@@ -73,7 +73,7 @@ export const Navbar = () => {
               >
                 <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
               </svg>
-              <p className="text-sm">Rete</p>
+              <a href="/main" className="text-sm">Rete</a>
             </div>
             <div className="jobs hover">
               <svg
