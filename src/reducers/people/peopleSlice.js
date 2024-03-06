@@ -22,6 +22,17 @@ export const getPeople = createAsyncThunk("people/GETPeople", async () => {
 const peopleSlice = createSlice({
   name: "people",
   initialState,
+  reducers: {
+    filterPeople: (state, action) => {
+      const lowerCasePayload = action.payload.toLowerCase();
+      state.people = state.people.filter((person) => {
+        return (
+          person.name.toLowerCase().includes(lowerCasePayload.toLowerCase()) ||
+          person.surname.toLowerCase().includes(lowerCasePayload.toLowerCase())
+        );
+      });
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPeople.pending, (state) => {
@@ -41,5 +52,6 @@ const peopleSlice = createSlice({
 export const allPeople = (state) => state.peopleData.people;
 export const isAllPeopleLoading = (state) => state.peopleData.isLoading;
 export const isAllPeopleError = (state) => state.peopleData.isError;
+export const { filterPeople } = peopleSlice.actions;
 
 export default peopleSlice.reducer;

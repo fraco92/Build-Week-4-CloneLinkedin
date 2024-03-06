@@ -15,7 +15,7 @@ export const Card = ({ props }) => {
         <img
           class="object-cover object-center h-32"
           src={image}
-          alt="Woman looking front"
+          alt="user profile"
         />
       </div>
       <div class="text-center mt-2">

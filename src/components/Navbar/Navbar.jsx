@@ -1,6 +1,27 @@
+import { useDispatch } from "react-redux";
 import "./Navbar.css";
+import { useEffect } from "react";
+import { filterPeople, getPeople } from "../../reducers/people/peopleSlice";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPeople());
+  }, [dispatch]);
+
+  const handleSearch = (value) => {
+    const timeout = setTimeout(() => {
+      if (value.length > 0) {
+        dispatch(filterPeople(value));
+      } else {
+        dispatch(getPeople());
+      }
+    }, 500);
+
+    return () => clearTimeout(timeout)
+  };
+
   return (
     <>
       <div
@@ -15,6 +36,7 @@ export const Navbar = () => {
           />
           <div className="form-control">
             <input
+              onChange={(e) => handleSearch(e.target.value)}
               type="text"
               placeholder="🔍 Cerca"
               className="input input-bordered rounded w-[250px] h-[35px] border-none"
