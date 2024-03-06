@@ -22,23 +22,25 @@ export const Main = () => {
   return (
     <div className="bg-[#F3F2ED] py-[25px]">
       <div className="people-cont grid bg-[#fff] mx-[350px] rounded-2xl">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-4 mx-8 mb-16">
-          {isPeopleLoading && (
-            <Circles
-              height="80"
-              width="80"
-              color="#000"
-              ariaLabel="circles-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
+      {isPeopleLoading && (
+            <div className="circle-container w-[100%] my-5 flex justify-center">
+              <Circles
+                height="80"
+                width="80"
+                color="#000"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </div>
           )}
           {isPeopleError && (
             <div>
               <p>Error, please try again later.</p>
             </div>
           )}
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 grid-flow-row gap-4 mx-8 mb-16">
           {!isPeopleError &&
             !isPeopleLoading &&
             people.map((profile) => {
