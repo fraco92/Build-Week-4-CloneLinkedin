@@ -7,53 +7,59 @@ export const Footer = () => {
             <div>
               <ul class="font-medium">
                 <li class="mb-4">
-                  <a class="hover:underline">Informazioni</a>
+                  <a class="hover:underline cursor-pointer">Informazioni</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Linee guida della community</a>
+                  <a class="hover:underline cursor-pointer">
+                    Linee guida della community
+                  </a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Privacy e condizioni</a>
+                  <a class="hover:underline cursor-pointer">
+                    Privacy e condizioni
+                  </a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Sales Solutions</a>
+                  <a class="hover:underline cursor-pointer">Sales Solutions</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Centro sicurezza</a>
+                  <a class="hover:underline cursor-pointer">Centro sicurezza</a>
                 </li>
               </ul>
             </div>
             <div>
               <ul class="font-medium">
                 <li class="mb-4">
-                  <a class="hover:underline ">Accessibilità</a>
+                  <a class="hover:underline cursor-pointer ">Accessibilità</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Carriera</a>
+                  <a class="hover:underline cursor-pointer">Carriera</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">
+                  <a class="hover:underline cursor-pointer">
                     Opzioni per gli annunci pubblicitari
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Mobile</a>
+                  <a class="hover:underline cursor-pointer">Mobile</a>
                 </li>
               </ul>
             </div>
             <div>
               <ul class="font-medium">
                 <li class="mb-4">
-                  <a class="hover:underline">Talent Solutions</a>
+                  <a class="hover:underline cursor-pointer">Talent Solutions</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Soluzioni di marketing</a>
+                  <a class="hover:underline cursor-pointer">
+                    Soluzioni di marketing
+                  </a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Pubblicità</a>
+                  <a class="hover:underline cursor-pointer">Pubblicità</a>
                 </li>
                 <li className="mb-4">
-                  <a class="hover:underline">Piccole imprese</a>
+                  <a class="hover:underline cursor-pointer">Piccole imprese</a>
                 </li>
               </ul>
             </div>
@@ -62,7 +68,9 @@ export const Footer = () => {
         <hr class="my-6 border-[#696969] sm:mx-auto lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-[#696969] sm:text-cente">
-            <a class="hover:underline">LinkedIn Corporation © 2024</a>
+            <a class="hover:underline cursor-pointer">
+              LinkedIn Corporation © 2024
+            </a>
           </span>
         </div>
       </div>
