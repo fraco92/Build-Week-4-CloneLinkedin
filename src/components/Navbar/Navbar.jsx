@@ -2,9 +2,11 @@ import { useDispatch } from "react-redux";
 import "./Navbar.css";
 import { useEffect } from "react";
 import { filterPeople, getPeople } from "../../reducers/people/peopleSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getPeople());
@@ -14,6 +16,7 @@ export const Navbar = () => {
     const timeout = setTimeout(() => {
       if (value.length > 0) {
         dispatch(filterPeople(value));
+        navigate('/rete')
       } else {
         dispatch(getPeople());
       }
@@ -26,12 +29,12 @@ export const Navbar = () => {
     <>
       <div
         data-theme="light"
-        className="navbar bg-base-100 flex-none gap-2 w-full"
+        className="flex items-center bg-base-100 gap-2 w-100"
       >
-        <div className="flex-1 justify-between mx-[350px]">
-          <div className="logo-with-searchbar flex">
+        <div className="flex items-center gap-[180px] mx-[350px] py-3 w-100">
+          <div className="logo-with-searchbar md:w-100 flex">
             <img
-              className="w-[35px] me-2 cursor-pointer"
+              className="w-[35px] md:aspect-square me-2 cursor-pointer"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
               alt=""
             />
@@ -44,7 +47,7 @@ export const Navbar = () => {
               />
             </div>
           </div>
-          <div className="ms-[100px] icons text-center flex items-center gap-9">
+          <div className="icons text-center flex items-center gap-5">
             <div className="home hover">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +61,9 @@ export const Navbar = () => {
               >
                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
               </svg>
-              <a href="/" className="text-sm">Home</a>
+              <a href="/" className="text-sm">
+                Home
+              </a>
             </div>
             <div className="friends hover">
               <svg
@@ -73,7 +78,9 @@ export const Navbar = () => {
               >
                 <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
               </svg>
-              <a href="/main" className="text-sm">Rete</a>
+              <a href="/rete" className="text-sm">
+                Rete
+              </a>
             </div>
             <div className="jobs hover">
               <svg

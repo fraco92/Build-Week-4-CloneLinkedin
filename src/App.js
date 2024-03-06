@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/main" element={<Main />} />
+        <Route path="/rete" element={<Main />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
