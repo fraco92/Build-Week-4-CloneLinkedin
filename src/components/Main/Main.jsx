@@ -40,7 +40,7 @@ export const Main = () => {
             <p>Error, please try again later.</p>
           </div>
         )}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 grid-flow-row gap-4 mx-8 mb-16">
+        <div className="overflow-hidden grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 grid-flow-row gap-4 mx-8 mb-16">
           {!isPeopleError &&
             !isPeopleLoading &&
             people.map((profile, i) => {

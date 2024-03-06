@@ -16,7 +16,7 @@ export const Navbar = () => {
     const timeout = setTimeout(() => {
       if (value.length > 0) {
         dispatch(filterPeople(value));
-        navigate('/rete')
+        navigate("/rete");
       } else {
         dispatch(getPeople());
       }
@@ -29,9 +29,9 @@ export const Navbar = () => {
     <>
       <div
         data-theme="light"
-        className="flex items-center bg-base-100 gap-2 w-100"
+        className="flex items-center bg-base-100 gap-2"
       >
-        <div className="flex items-center gap-[180px] mx-[350px] py-3 w-100">
+        <div className="flex items-center gap-[180px] m-auto py-3">
           <div className="logo-with-searchbar md:w-100 flex">
             <img
               className="w-[35px] md:aspect-square me-2 cursor-pointer"
@@ -42,7 +42,7 @@ export const Navbar = () => {
               <input
                 onChange={(e) => handleSearch(e.target.value)}
                 type="text"
-                placeholder="🔍 Cerca"
+                placeholder="Cerca"
                 className="input input-bordered rounded w-[250px] h-[35px] border-none"
               />
             </div>
@@ -152,6 +152,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };
