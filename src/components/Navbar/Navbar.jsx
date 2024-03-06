@@ -134,7 +134,7 @@ export const Navbar = () => {
                 src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
               />
               <div className="you-text flex">
-                <p className="text-sm">Tu</p>
+                <a href="/details" className="text-sm">Tu</a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
