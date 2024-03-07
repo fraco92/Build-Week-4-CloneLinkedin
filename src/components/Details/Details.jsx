@@ -6,15 +6,7 @@ import { useEffect, useState } from "react";
 export const Details = () => {
   let { id } = useParams();
   const [profile, setProfile] = useState({});
-  const [experiences, setExperiences] = useState({});
-
-  const getProfileData = async () => {
-    const response = await axios.get(process.env.REACT_APP_API_URL_GET + id, {
-      headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
-    });
-    setProfile(response.data);
-    return;
-  };
+  const [experiences, setExperiences] = useState([]);
 
   const getProfileExperiences = async () => {
     const response = await axios.get(
@@ -27,9 +19,22 @@ export const Details = () => {
     return;
   };
 
+  const getProfileData = async () => {
+    const response = await axios.get(process.env.REACT_APP_API_URL_GET + id, {
+      headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
+    });
+    setProfile(response.data);
+
+    if (id === "me") {
+      id = response.data._id;
+    }
+    getProfileExperiences();
+    return;
+  };
+
+
   useEffect(() => {
     getProfileData();
-    getProfileExperiences();
   }, []);
 
   return (
@@ -73,7 +78,26 @@ export const Details = () => {
           <h2 className="text-lg font-semibold">Esperienze</h2>
           <p className="text-gray-600 mt-2">
             {experiences.length > 0 ? (
-              <div>{experiences}</div>
+              experiences.map((experience, i) => {
+                return (
+                  <div key={i} className="border text-black rounded p-2 w-1/2">
+                    <ul>
+                      <li>
+                        <b>Ruolo:</b> {experience.role}
+                      </li>
+                      <li>
+                        <b>Azienda:</b> {experience.company}
+                      </li>
+                      <li>
+                        <b>Inizio:</b> {experience.startDate}
+                      </li>
+                      <li>
+                        <b>Fine:</b> {experience.endDate}
+                      </li>
+                    </ul>
+                  </div>
+                );
+              })
             ) : (
               <div>
                 <p>Nessuna esperienza lavorativa registrata</p>
