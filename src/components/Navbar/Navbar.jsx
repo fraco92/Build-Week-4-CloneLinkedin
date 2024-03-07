@@ -9,13 +9,12 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const checkWindowSize = () => {
-    if (window.innerWidth > 768 && !isCollapsed) {
-      setIsCollapsed(false);
-    }
-  };
-
   useEffect(() => {
+    const checkWindowSize = () => {
+      if (window.innerWidth > 1023 && !isCollapsed) {
+        setIsCollapsed(true);
+      }
+    };
     checkWindowSize();
   }, [isCollapsed]);
 
@@ -182,7 +181,7 @@ export const Navbar = () => {
           <div
             className={`${
               isCollapsed ? "hidden" : "block"
-            } absolute top-10 right-0 bg-white p-4 shadow-md rounded-md`}
+            } absolute top-10 right-0 bg-white p-4 shadow-md lg:hidden rounded-md`}
           >
             <div className="md:block lg:hidden collapse">
               <div className="home hover">
