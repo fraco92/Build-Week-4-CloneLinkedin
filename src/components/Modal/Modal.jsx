@@ -60,14 +60,14 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
       }
     >
       <div className="relative p-4 w-full max-w-md max-h-full m-auto">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="relative bg-white rounded-lg shadow ">
+          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+            <h3 className="text-lg font-semibold text-gray-900">
               Aggiungi una nuova esperienza lavorativa
             </h3>
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
               data-modal-toggle="crud-modal"
               onClick={() => setShow(false)}
             >
@@ -94,7 +94,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
               <div className="col-span-2">
                 <label
                   htmlFor="role"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Ruolo
                 </label>
@@ -103,7 +103,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   type="text"
                   name="role"
                   id="role"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Ruolo"
                   required=""
                 />
@@ -111,7 +111,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
               <div className="col-span-2">
                 <label
                   htmlFor="area"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Area
                 </label>
@@ -120,7 +120,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   type="text"
                   name="area"
                   id="area"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Area"
                   required=""
                 />
@@ -128,7 +128,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
               <div className="col-span-2">
                 <label
                   htmlFor="company"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Azienda
                 </label>
@@ -137,7 +137,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   type="text"
                   name="company"
                   id="company"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Azienda"
                   required=""
                 />
@@ -145,7 +145,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
               <div className="col-span-2">
                 <label
                   htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Descrizione
                 </label>
@@ -154,7 +154,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   type="text"
                   name="description"
                   id="description"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Descrizione"
                   required=""
                 />
@@ -162,14 +162,14 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
               <div className="col-span-2">
                 <label
                   htmlFor="startDate"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Data d'inizio
                 </label>
                 <div className="relative max-w-sm">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4 text-gray-500 "
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -184,21 +184,21 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                     onChange={handleInputChange}
                     datepicker
                     type="date"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                   />
                 </div>
               </div>
               <div className="col-span-2">
                 <label
                   htmlFor="endDate"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 "
                 >
                   Data di fine
                 </label>
                 <div className="relative max-w-sm">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4 text-gray-500 "
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -213,7 +213,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                     onChange={handleInputChange}
                     datepicker
                     type="date"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 "
                   />
                 </div>
               </div>
@@ -221,7 +221,7 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
             <button
               onClick={(e) => handleSave(e)}
               type="button"
-              className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               <svg
                 className="me-1 -ms-1 w-5 h-5"
