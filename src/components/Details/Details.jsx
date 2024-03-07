@@ -71,15 +71,15 @@ export const Details = () => {
   }, []);
 
   return (
-    <div className="cont pt-5 bg-[#F3F2ED]">
-      <div className="max-w-screen-xl mx-auto bg-white rounded-lg shadow-md">
+    <div className="cont pt-5 bg-[#F3F2ED] ">
+      <div className="max-w-screen-xl mx-auto max-w-[1128px] px-auto bg-white rounded-lg shadow-md">
         <div className="relative flex flex-col md:flex-row items-center md:items-start flex-wrap">
           <div className="banner-container h-[300px]">
-          <img
-            className="w-full object-cover rounded-lg"
-            src="https://picsum.photos/1280/300"
-            alt="Background"
-          />
+            <img
+              className="w-full object-cover rounded-lg"
+              src="https://picsum.photos/1280/300"
+              alt="Background"
+            />
           </div>
           <div className="flex items-center ms-10 mt-5">
             <img

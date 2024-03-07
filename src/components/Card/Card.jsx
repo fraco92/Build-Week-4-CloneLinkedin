@@ -1,16 +1,19 @@
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
 
-export const Card = ({ props }) => {
+export const Card = ({ props, cover_img }) => {
   const { name, surname, title, image, _id } = props;
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate(`/details/${_id}`)} class="min-w-[190px] hover:shadow-md transition-transform duration-500 bg-white border rounded-lg text-gray-900 cursor-pointer card">
+    <div
+      onClick={() => navigate(`/details/${_id}`)}
+      class="min-w-[190px] hover:shadow-md transition-transform duration-500 bg-white border rounded-lg text-gray-900 cursor-pointer card"
+    >
       <div class="rounded-t-lg h-32 overflow-hidden">
         <img
           class="object-cover object-top w-full"
-          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+          src={cover_img}
           alt="Mountain"
         />
       </div>

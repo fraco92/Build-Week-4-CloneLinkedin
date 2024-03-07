@@ -20,8 +20,8 @@ export const Main = () => {
   }, [dispatch]);
 
   return (
-    <div className="bg-[#F3F2ED] py-[25px]">
-      <div className="people-cont grid bg-[#fff] mx-[20%] rounded-2xl">
+    <div className="bg-[#F3F2ED] px-3 py-[25px]">
+      <div className="people-cont grid bg-[#fff] max-w-[1128px] mx-auto rounded-2xl">
         {isPeopleLoading && (
           <div className="circle-container w-[100%] my-5 flex justify-center">
             <Circles
@@ -44,7 +44,13 @@ export const Main = () => {
           {!isPeopleError &&
             !isPeopleLoading &&
             people.map((profile, i) => {
-              return <Card key={i} props={profile} />;
+              return (
+                <Card
+                  cover_img={`https://picsum.photos/400/267?random=${i}`}
+                  key={i}
+                  props={profile}
+                />
+              );
             })}
         </div>
       </div>
