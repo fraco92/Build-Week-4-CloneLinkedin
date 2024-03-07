@@ -7,6 +7,8 @@ export const Details = () => {
   let { id } = useParams();
   const [profile, setProfile] = useState({});
   const [experiences, setExperiences] = useState([]);
+  const [isMe, setIsMe] = useState(false);
+  const [putId, setPutId] = useState();
 
   const getProfileExperiences = async () => {
     const response = await axios.get(
@@ -27,11 +29,44 @@ export const Details = () => {
 
     if (id === "me") {
       id = response.data._id;
+      setIsMe(true);
+      setPutId(id);
     }
     getProfileExperiences();
+    console.log(experiences);
     return;
   };
 
+  const handleSave = async (e) => {
+    e.preventDefault();
+    const givenExperience = {
+      role: "CTO",
+      company: "OnMyOwn",
+      startDate: "2019-06-16",
+      endDate: "2019-09-16",
+      description: "doing stuff",
+      area: "Napoli",
+      username: "ang",
+    };
+
+    console.log(id);
+
+    try {
+      await axios.post(
+        `https://striveschool-api.herokuapp.com/api/profile/${putId}/experiences`,
+        givenExperience,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      getProfileData();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     getProfileData();
@@ -76,34 +111,45 @@ export const Details = () => {
         </div>
         <div className="py-8 ms-10">
           <h2 className="text-lg font-semibold">Esperienze</h2>
-          <p className="text-gray-600 mt-2">
-            {experiences.length > 0 ? (
-              experiences.map((experience, i) => {
-                return (
-                  <div key={i} className="border text-black rounded p-2 w-1/2">
-                    <ul>
-                      <li>
-                        <b>Ruolo:</b> {experience.role}
-                      </li>
-                      <li>
-                        <b>Azienda:</b> {experience.company}
-                      </li>
-                      <li>
-                        <b>Inizio:</b> {experience.startDate}
-                      </li>
-                      <li>
-                        <b>Fine:</b> {experience.endDate}
-                      </li>
-                    </ul>
-                  </div>
-                );
-              })
-            ) : (
-              <div>
-                <p>Nessuna esperienza lavorativa registrata</p>
-              </div>
-            )}
-          </p>
+          {experiences.length > 0 ? (
+            experiences.map((experience, i) => {
+              return (
+                <div key={i} className="border text-gray-600 rounded p-2 w-1/2">
+                  <ul>
+                    <li>
+                      <b>Id:</b> {experience._id}
+                    </li>
+                    <li>
+                      <b>Ruolo:</b> {experience.role}
+                    </li>
+                    <li>
+                      <b>Azienda:</b> {experience.company}
+                    </li>
+                    <li>
+                      <b>Inizio:</b> {experience.startDate}
+                    </li>
+                    <li>
+                      <b>Fine:</b> {experience.endDate}
+                    </li>
+                  </ul>
+                </div>
+              );
+            })
+          ) : (
+            <div className="text-gray-600">
+              <p>Nessuna esperienza lavorativa registrata</p>
+            </div>
+          )}
+          {isMe && (
+            <div className="text-gray-600 mt-5">
+              <button
+                onClick={(e) => handleSave(e)}
+                className="btn bg-slate-400 text-white border-none"
+              >
+                Aggiungi un'esperienza lavorativa
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
