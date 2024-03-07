@@ -2,70 +2,54 @@ import axios from "axios";
 import "./Details.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Modal } from "../Modal/Modal";
 
 export const Details = () => {
   let { id } = useParams();
   const [profile, setProfile] = useState({});
   const [experiences, setExperiences] = useState([]);
   const [isMe, setIsMe] = useState(false);
-  const [putId, setPutId] = useState();
+  const [postId, setPostId] = useState();
+  const [show, setShow] = useState(false);
 
   const getProfileExperiences = async () => {
-    const response = await axios.get(
-      process.env.REACT_APP_API_URL_GET + id + "/experiences",
-      {
-        headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
-      }
-    );
-    setExperiences(response.data);
-    return;
-  };
-
-  const getProfileData = async () => {
-    const response = await axios.get(process.env.REACT_APP_API_URL_GET + id, {
-      headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
-    });
-    setProfile(response.data);
-
-    if (id === "me") {
-      id = response.data._id;
-      setIsMe(true);
-      setPutId(id);
-    }
-    getProfileExperiences();
-    console.log(experiences);
-    return;
-  };
-
-  const handleSave = async (e) => {
-    e.preventDefault();
-    const givenExperience = {
-      role: "CTO",
-      company: "OnMyOwn",
-      startDate: "2019-06-16",
-      endDate: "2019-09-16",
-      description: "doing stuff",
-      area: "Napoli",
-      username: "ang",
-    };
-
-    console.log(id);
-
     try {
-      await axios.post(
-        `https://striveschool-api.herokuapp.com/api/profile/${putId}/experiences`,
-        givenExperience,
+      const response = await axios.get(
+        process.env.REACT_APP_API_URL_GET + id + "/experiences",
         {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-            "Content-Type": "application/json",
-          },
+          headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
         }
       );
-      getProfileData();
+      setExperiences(response.data);
+      return;
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const getProfileData = async () => {
+    try {
+      const response = await axios.get(process.env.REACT_APP_API_URL_GET + id, {
+        headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
+      });
+      setProfile(response.data);
+
+      if (id === "me") {
+        id = response.data._id;
+        setIsMe(true);
+        setPostId(id);
+      }
+      getProfileExperiences();
+      console.log(experiences);
+      return;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const showModalFn = (e) => {
+    e.preventDefault();
+    setShow(!show);
   };
 
   useEffect(() => {
@@ -114,11 +98,11 @@ export const Details = () => {
           {experiences.length > 0 ? (
             experiences.map((experience, i) => {
               return (
-                <div key={i} className="border text-gray-600 rounded p-2 w-1/2">
+                <div
+                  key={i}
+                  className="border text-gray-600 rounded p-2 w-1/2 my-2"
+                >
                   <ul>
-                    <li>
-                      <b>Id:</b> {experience._id}
-                    </li>
                     <li>
                       <b>Ruolo:</b> {experience.role}
                     </li>
@@ -143,11 +127,20 @@ export const Details = () => {
           {isMe && (
             <div className="text-gray-600 mt-5">
               <button
-                onClick={(e) => handleSave(e)}
+                data-modal-target="crud-modal"
+                data-modal-toggle="crud-modal"
+                onClick={(e) => showModalFn(e)}
                 className="btn bg-slate-400 text-white border-none"
               >
                 Aggiungi un'esperienza lavorativa
               </button>
+              <Modal
+                show={show}
+                setShow={setShow}
+                id={postId}
+                getProfileData={getProfileData}
+                username={profile.username}
+              />
             </div>
           )}
         </div>
