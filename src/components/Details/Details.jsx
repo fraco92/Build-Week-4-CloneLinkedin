@@ -40,7 +40,6 @@ export const Details = () => {
         setPostId(id);
       }
       getProfileExperiences();
-      console.log(experiences);
       return;
     } catch (error) {
       console.error(error);
@@ -52,6 +51,21 @@ export const Details = () => {
     setShow(!show);
   };
 
+  const formatDateIntoHuman = (date) => {
+    const formattedDate = new Date(date);
+
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    const result = new Intl.DateTimeFormat("it-IT", options).format(
+      formattedDate
+    );
+    return result;
+  };
+
   useEffect(() => {
     getProfileData();
   }, []);
@@ -59,19 +73,21 @@ export const Details = () => {
   return (
     <div className="cont pt-5 bg-[#F3F2ED]">
       <div className="max-w-screen-xl mx-auto bg-white rounded-lg shadow-md">
-        <div className="flex flex-col md:flex-row items-center md:items-start flex-wrap">
+        <div className="relative flex flex-col md:flex-row items-center md:items-start flex-wrap">
+          <div className="banner-container h-[300px]">
           <img
             className="w-full object-cover rounded-lg"
             src="https://picsum.photos/1280/300"
             alt="Background"
           />
+          </div>
           <div className="flex items-center ms-10 mt-5">
             <img
-              className="rounded-full user-img w-[180px] h-[180px] md:w-[200px] md:h-[200px] border-4 border-white shadow-md"
+              className="absolute top-[150px] rounded-full user-img w-[180px] h-[180px] md:w-[200px] md:h-[200px] border-4 border-white shadow-md"
               src={profile.image}
               alt="Profile"
             />
-            <div className="ml-4">
+            <div className="pt-[50px] ml-4">
               <h1 className="text-2xl font-bold">
                 {profile.name} {profile.surname}
               </h1>
@@ -110,10 +126,10 @@ export const Details = () => {
                       <b>Azienda:</b> {experience.company}
                     </li>
                     <li>
-                      <b>Inizio:</b> {experience.startDate}
+                      <b>Inizio:</b> {formatDateIntoHuman(experience.startDate)}
                     </li>
                     <li>
-                      <b>Fine:</b> {experience.endDate}
+                      <b>Fine:</b> {formatDateIntoHuman(experience.endDate)}
                     </li>
                   </ul>
                 </div>
