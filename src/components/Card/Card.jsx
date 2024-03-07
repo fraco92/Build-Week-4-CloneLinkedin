@@ -1,9 +1,12 @@
 import "./Card.css";
+import { useNavigate } from "react-router-dom";
 
 export const Card = ({ props }) => {
-  const { name, surname, title, image } = props;
+  const { name, surname, title, image, _id } = props;
+  const navigate = useNavigate();
+
   return (
-    <div class="min-w-[200px] hover:scale-[1.02] transition-transform duration-500 mt-16 bg-white shadow-xl rounded-lg text-gray-900 cursor-pointer card">
+    <div onClick={() => navigate(`/details/${_id}`)} class="min-w-[200px] hover:scale-[1.02] transition-transform duration-500 mt-16 bg-white shadow-xl rounded-lg text-gray-900 cursor-pointer card">
       <div class="rounded-t-lg h-32 overflow-hidden">
         <img
           class="object-cover object-top w-full"
