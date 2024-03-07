@@ -3,6 +3,7 @@ import "./Details.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Modal } from "../Modal/Modal";
+import { Sidebar } from "../Sidebar/Sidebar";
 
 export const Details = () => {
   let { id } = useParams();
@@ -71,8 +72,8 @@ export const Details = () => {
   }, []);
 
   return (
-    <div className="cont pt-5 bg-[#F3F2ED] ">
-      <div className="max-w-screen-xl mx-auto max-w-[1128px] px-auto bg-white rounded-lg shadow-md">
+    <div className="cont pt-5 bg-[#F3F2ED] flex justify-center mx-auto">
+      <div className="max-w-[828px] bg-white rounded-lg shadow-md me-5">
         <div className="relative flex flex-col md:flex-row items-center md:items-start flex-wrap">
           <div className="banner-container h-[300px]">
             <img
@@ -87,7 +88,7 @@ export const Details = () => {
               src={profile.image}
               alt="Profile"
             />
-            <div className="pt-[50px] ml-4">
+            <div className="pt-[50px]">
               <h1 className="text-2xl font-bold">
                 {profile.name} {profile.surname}
               </h1>
@@ -161,6 +162,7 @@ export const Details = () => {
           )}
         </div>
       </div>
+      <Sidebar />
     </div>
   );
 };

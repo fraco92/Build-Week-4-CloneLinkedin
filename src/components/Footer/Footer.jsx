@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <footer className="text-[#696969] bg-[#F3F2ED]">
-      <div class="p-4 py-6 lg:py-8">
+      <div class="p-4 py-6 lg:py-8 col justify-center">
         <div class="md:flex md:justify-between">
           <div class="m-auto justify-center grid gap-8 sm:gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap">
             <div>
@@ -65,7 +65,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <hr class="my-6 border-[#696969] sm:mx-auto lg:my-8 w-2/4" />
+        <hr class="my-5 m-auto border-[#696969] w-1/2" />
         <div class="flex justify-center">
           <span class="text-sm text-[#696969] sm:text-center">
             <a class="hover:underline cursor-pointer">

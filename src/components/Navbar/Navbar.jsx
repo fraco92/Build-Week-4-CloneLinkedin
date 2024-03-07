@@ -38,9 +38,10 @@ export const Navbar = () => {
   return (
     <>
       <div data-theme="light" className="bg-base-100">
-        <div className="flex items-center justify-between max-w-[1128px] m-auto h-[53px]">
+        <div className="flex items-center justify-center md:justify-between max-w-[1128px] m-auto h-[53px]">
           <div className="logo-with-searchbar flex">
             <img
+              onClick={() => navigate("/")}
               className="w-[35px] md:aspect-square me-2 cursor-pointer"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
               alt=""
@@ -181,7 +182,7 @@ export const Navbar = () => {
           <div
             className={`${
               isCollapsed ? "hidden" : "block"
-            } absolute top-10 right-0 bg-white p-4 shadow-md lg:hidden rounded-md`}
+            } absolute top-10 right-0 bg-white p-4 shadow-md lg:hidden rounded-md z-10`}
           >
             <div className="md:block lg:hidden collapse">
               <div className="home hover">
