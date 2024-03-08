@@ -210,6 +210,9 @@ export const Details = () => {
                         <b>Ruolo:</b> {experience.role}
                       </li>
                       <li>
+                        <b>Area:</b> {experience.area}
+                      </li>
+                      <li>
                         <b>Azienda:</b> {experience.company}
                       </li>
                       <li>
