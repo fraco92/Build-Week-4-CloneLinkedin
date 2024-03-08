@@ -168,11 +168,11 @@ export const Details = () => {
             </div>
             <div className="flex items-center ms-10 mt-5">
               <img
-                className="absolute top-[150px] rounded-full user-img w-[180px] h-[180px] md:w-[200px] md:h-[200px] border-4 border-white shadow-md"
+                className="absolute top-[150px] object-cover rounded-full user-img w-[180px] h-[180px] md:w-[200px] md:h-[200px] border-4 border-white shadow-md"
                 src={profile.image}
                 alt="Profile"
               />
-              <div className="pt-[50px]">
+              <div className="pt-[50px] text-gray-600">
                 <h1 className="text-2xl font-bold">
                   {profile.name} {profile.surname}
                 </h1>
@@ -191,10 +191,12 @@ export const Details = () => {
             </div>
           </div>
           <div className="mt-8 ms-10">
-            <h2 className="text-lg font-semibold">Informazioni</h2>
+            <h2 className="text-gray-600 text-lg font-semibold">
+              Informazioni
+            </h2>
             <p className="text-gray-600 mt-2">{profile.bio}</p>
           </div>
-          <div className="py-8 ms-10">
+          <div className="py-8 ms-10 text-gray-600">
             <h2 className="text-lg font-semibold">Esperienze</h2>
             {experiences.length > 0 ? (
               experiences.map((experience, i) => {

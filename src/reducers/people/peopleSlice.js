@@ -12,7 +12,7 @@ export const getPeople = createAsyncThunk("people/GETPeople", async () => {
     const response = await axios.get(process.env.REACT_APP_API_URL_GET, {
       headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` },
     });
-    return await response.data.reverse().slice(0, 12);
+    return await response.data.reverse().slice(0, 24);
   } catch (e) {
     console.error(e);
     throw e;

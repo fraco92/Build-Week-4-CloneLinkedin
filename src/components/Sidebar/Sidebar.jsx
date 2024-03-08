@@ -13,7 +13,11 @@ export const Sidebar = ({ showCircle }) => {
 
   return (
     <div
-      className={showCircle ? "hidden" : "container w-[300px] hidden md:block"}
+      className={
+        showCircle
+          ? "hidden"
+          : "container w-[300px] hidden md:block text-gray-600"
+      }
     >
       <div className="top-div bg-white p-2 rounded border">
         <div className="lingua p-1">
