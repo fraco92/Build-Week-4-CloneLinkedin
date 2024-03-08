@@ -14,7 +14,7 @@ export const Details = () => {
   const [postId, setPostId] = useState();
   const [show, setShow] = useState(false);
   const [showCircle, setShowCircle] = useState(true);
-  const [editData, setEditData] = useState({})
+  const [editData, setEditData] = useState({});
 
   const getProfileExperiences = async () => {
     try {
@@ -52,7 +52,7 @@ export const Details = () => {
 
   const showModalFn = (e) => {
     e.preventDefault();
-    setEditData({})
+    setEditData({});
     setShow(!show);
   };
 
@@ -80,8 +80,8 @@ export const Details = () => {
         }
       );
       if (response.status === 200) {
-        setShow(!show)
-        setEditData(response.data)
+        setShow(!show);
+        setEditData(response.data);
       }
     } catch (error) {
       console.error(error);
@@ -89,7 +89,6 @@ export const Details = () => {
   };
 
   const handleDeleteExperience = async (expId) => {
-    console.log("delete", expId);
     const response = window.confirm(
       "Sei sicuro di voler eliminare quest'esperienza lavorativa?"
     );
@@ -117,6 +116,7 @@ export const Details = () => {
     } else {
       return;
     }
+    window.location.reload();
   };
 
   useEffect(() => {

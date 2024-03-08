@@ -28,20 +28,6 @@ export const Modal = ({
     }));
   };
 
-  useEffect(() => {
-    if (experienceData) {
-      setFormData({
-        role: experienceData.role || "",
-        company: experienceData.company || "",
-        startDate: experienceData.startDate || "",
-        endDate: experienceData.endDate || "",
-        description: experienceData.description || "",
-        area: experienceData.area || "",
-        username: experienceData.username || "",
-      });
-    }
-  }, [experienceData]);
-
   const handleSave = async (e) => {
     e.preventDefault();
     const givenExperience = {
@@ -50,7 +36,6 @@ export const Modal = ({
     };
 
     if (e.target.innerText.includes("Aggiorna")) {
-      console.log(formData);
       try {
         await axios.put(
           `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${experienceData._id}`,
@@ -73,7 +58,6 @@ export const Modal = ({
       } catch (error) {
         console.error(error);
       }
-      window.location.reload();
     } else {
       try {
         await axios.post(
@@ -98,7 +82,22 @@ export const Modal = ({
         console.error(error);
       }
     }
+    window.location.reload();
   };
+
+  useEffect(() => {
+    if (experienceData) {
+      setFormData({
+        role: experienceData.role || "",
+        company: experienceData.company || "",
+        startDate: experienceData.startDate || "",
+        endDate: experienceData.endDate || "",
+        description: experienceData.description || "",
+        area: experienceData.area || "",
+        username: experienceData.username || "",
+      });
+    }
+  }, [experienceData]);
 
   return (
     <div
