@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { allPeople, getPeople } from "../../reducers/people/peopleSlice";
 
-export const Sidebar = () => {
+export const Sidebar = ({ showCircle }) => {
   let people = useSelector(allPeople);
   people = people.slice(0, 6);
   const dispatch = useDispatch();
@@ -12,7 +12,9 @@ export const Sidebar = () => {
   }, [dispatch]);
 
   return (
-    <div className="container w-[300px] hidden md:block">
+    <div
+      className={showCircle ? "hidden" : "container w-[300px] hidden md:block"}
+    >
       <div className="top-div bg-white p-2 rounded border">
         <div className="lingua p-1">
           <h2>Lingua del profilo</h2>
@@ -27,9 +29,9 @@ export const Sidebar = () => {
       <div className="bottom-div mt-3">
         <div className="pb-0 bg-white p-2 rounded border">
           <h2 className="ps-2">Altri profili consultati</h2>
-          {people.map((person) => {
+          {people.map((person, i) => {
             return (
-              <div className="random-user p-2 border-b col">
+              <div key={i} className="random-user p-2 border-b col">
                 <div className="user flex items-center">
                   <img
                     src={person.image}

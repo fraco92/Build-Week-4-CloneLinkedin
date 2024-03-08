@@ -1,8 +1,15 @@
 import "./Modal.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const Modal = ({ show, setShow, id, getProfileData, username }) => {
+export const Modal = ({
+  show,
+  setShow,
+  id,
+  getProfileData,
+  username,
+  experienceData,
+}) => {
   const [formData, setFormData] = useState({
     role: "",
     company: "",
@@ -28,23 +35,53 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
       username: username,
     };
 
-    console.log(givenExperience);
-
-    try {
-      await axios.post(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
-        givenExperience,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      setShow(false);
-      getProfileData();
-    } catch (error) {
-      console.error(error);
+    if (e.target.innerText.includes("Aggiorna")) {
+      try {
+        await axios.put(
+          `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${experienceData._id}`,
+          givenExperience,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setShow(false);
+        getProfileData();
+        document.getElementById("role").value = "";
+        document.getElementById("company").value = "";
+        document.getElementById("startDate").value = "";
+        document.getElementById("endDate").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("area").value = "";
+      } catch (error) {
+        console.error(error);
+      }
+      window.location.reload();
+    } else {
+      try {
+        await axios.post(
+          `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
+          givenExperience,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setShow(false);
+        getProfileData();
+        document.getElementById("role").value = "";
+        document.getElementById("company").value = "";
+        document.getElementById("startDate").value = "";
+        document.getElementById("endDate").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("area").value = "";
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -105,7 +142,8 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   id="role"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Ruolo"
-                  required=""
+                  required
+                  defaultValue={experienceData.role}
                 />
               </div>
               <div className="col-span-2">
@@ -122,7 +160,8 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   id="area"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Area"
-                  required=""
+                  required
+                  defaultValue={experienceData.area}
                 />
               </div>
               <div className="col-span-2">
@@ -139,7 +178,8 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   id="company"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Azienda"
-                  required=""
+                  required
+                  defaultValue={experienceData.company}
                 />
               </div>
               <div className="col-span-2">
@@ -149,14 +189,15 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                 >
                   Descrizione
                 </label>
-                <textarea
+                <input
                   onChange={handleInputChange}
                   type="text"
                   name="description"
                   id="description"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   placeholder="Descrizione"
-                  required=""
+                  required
+                  defaultValue={experienceData.description}
                 />
               </div>
               <div className="col-span-2">
@@ -167,24 +208,15 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   Data d'inizio
                 </label>
                 <div className="relative max-w-sm">
-                  <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <svg
-                      className="w-4 h-4 text-gray-500 "
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                    </svg>
-                  </div>
+                  <div className="absolute inset-y-0 start-0 flex items-center py-10 ps-3.5 pointer-events-none"></div>
                   <input
+                    defaultValue={experienceData.startDate}
                     name="startDate"
                     id="startDate"
                     onChange={handleInputChange}
                     datepicker
                     type="date"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                    className="bg-gray-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
               </div>
@@ -196,24 +228,15 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   Data di fine
                 </label>
                 <div className="relative max-w-sm">
-                  <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <svg
-                      className="w-4 h-4 text-gray-500 "
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                    </svg>
-                  </div>
+                  <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"></div>
                   <input
+                    defaultValue={experienceData.endDate}
                     name="endDate"
                     id="endDate"
                     onChange={handleInputChange}
                     datepicker
                     type="date"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 "
+                    className="bg-gray-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                   />
                 </div>
               </div>
@@ -235,7 +258,9 @@ export const Modal = ({ show, setShow, id, getProfileData, username }) => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              Aggiungi esperienza lavorativa
+              {experienceData.role === undefined
+                ? "Aggiungi esperienza lavorativa"
+                : "Aggiorna esperienza lavorativa"}
             </button>
           </form>
         </div>
