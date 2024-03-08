@@ -8,7 +8,7 @@ export const Card = ({ props, cover_img }) => {
   return (
     <div
       onClick={() => navigate(`/details/${_id}`)}
-      class="min-w-[190px] hover:shadow-md transition-transform duration-500 bg-white border rounded-lg text-gray-900 cursor-pointer card"
+      class="min-w-[190px] transform hover:scale-[1.02] hover:shadow-md transition-transform duration-500 bg-white border rounded-lg text-gray-900 cursor-pointer card"
     >
       <div class="rounded-t-lg h-32 overflow-hidden">
         <img
