@@ -155,7 +155,7 @@ export const Details = () => {
           className={
             showCircle
               ? "hidden"
-              : `max-w-[828px] bg-white rounded-lg shadow-md me-5`
+              : `max-w-[828px] bg-white rounded-lg shadow-md m-0 md:me-5`
           }
         >
           <div className="relative flex flex-col md:flex-row items-center md:items-start flex-wrap">
@@ -180,7 +180,7 @@ export const Details = () => {
                   {profile.area} - {profile.title}
                 </p>
                 <div className="flex mt-2">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mr-4">
+                  <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mr-4 ">
                     Aggiungi contatto
                   </button>
                   <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-md">
@@ -232,13 +232,13 @@ export const Details = () => {
                     >
                       <button
                         onClick={() => handleEditExperience(experience._id)}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mr-4 w-1/2"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mr-4 w-[120px] md:w-1/2"
                       >
                         Modifica esperienza
                       </button>
                       <button
                         onClick={() => handleDeleteExperience(experience._id)}
-                        className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md mr-4 w-1/2"
+                        className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md mr-4 w-[120px] md:w-1/2"
                       >
                         Rimuovi esperienza
                       </button>

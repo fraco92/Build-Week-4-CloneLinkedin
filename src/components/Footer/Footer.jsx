@@ -68,7 +68,7 @@ export const Footer = () => {
         <hr class="my-5 m-auto border-[#696969] w-1/2" />
         <div class="flex justify-center">
           <span class="text-sm text-[#696969] sm:text-center">
-            <a class="hover:underline cursor-pointer">
+            <a href="www.linkedin.com" class="hover:underline cursor-pointer">
               LinkedIn Corporation © 2024
             </a>
           </span>

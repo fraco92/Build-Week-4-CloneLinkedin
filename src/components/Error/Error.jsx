@@ -6,13 +6,13 @@ export const Error = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-        setTimeout(() => {
-            setSeconds(seconds - 1);
-      }, 1000);
+    setTimeout(() => {
+      setSeconds(seconds - 1);
+    }, 1000);
 
-      if (!seconds) {
-        navigate("/")
-      }
+    if (!seconds) {
+      navigate("/");
+    }
   }, [seconds, navigate]);
 
   return (

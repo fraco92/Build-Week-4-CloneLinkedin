@@ -11,9 +11,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home />} />
         <Route path="/rete" element={<Main />} />
-        <Route path="/details/:id" element={<Details/>}/>
+        <Route path="/details/:id" element={<Details />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
